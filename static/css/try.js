@@ -19,7 +19,9 @@ function gotBuffers(buffers) {
 function doneEncoding(soundBlob) {
     fetch('/predict', {method: "POST", body: soundBlob}).then(response => response.text().then(text => {
         console.log(text);
-        document.getElementById('output').innerHTML =  text;
+        document.getElementById ('result').style.display='block';
+        document.getElementById('contain').style.display='none';
+        document.getElementById('output').innerText =  text;
     }));
     recIndex++;
 }
@@ -132,7 +134,7 @@ function gotStream(stream) {
     zeroGain.gain.value = 0.0;
     inputPoint.connect(zeroGain);
     zeroGain.connect(audioContext.destination);
-    updateAnalysers();
+    // updateAnalysers();
 }
 
 function initAudio() {

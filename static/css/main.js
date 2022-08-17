@@ -1,5 +1,6 @@
-// const text = document.getElementById("textBoxContainer");
+// const sanchiya = document.getElementById("textBoxContainer");
 // const btn = document.getElementById("start-btn");
+// const sbtn = document.getElementById("stop-btn");
 // var toggle = false;
 
 // var speechRecognition =
@@ -11,18 +12,6 @@
 
 // recognition.continuous = true;
 
-// recognition.onstart = function () {
-// instructions.text("Voice Recognition is On...");
-// };
-
-// recognition.onspeechend = function () {
-//   instructions.text("Blank audio");
-// };
-
-// recognition.onerror = function () {
-// instructions.text("Press start button again...");
-// };
-
 // recognition.onresult = function (event) {
 //   var current = event.resultIndex;
 //   var transcript = event.results[current][0].transcript;
@@ -31,88 +20,19 @@
 //   excessTextBox.innerHTML = excessTextBox.innerHTML + transcript;
 // };
 // const ShowWave = () => {
-//   if (btn.innerHTML === "Start") {
-//     btn.innerHTML = "Stop";
-//     handleAction();
-//     text.innerText = "";
-//     toggle = true;
-//     ShowWaveFormProgress(toggle);
-//     if (textcontent.length) {
-//       textcontent += "";
-//     }
-//     recognition.start();
-//   } else {
-//     btn.innerHTML = "Start";
-//     toggle = false;
-//     ShowWaveFormProgress(toggle);
-//     recognition.stop();
-//     window.location.href = "/result.html";
-//   }
-// };
-
-// const recordAudio = () =>
-//   new Promise(async (resolve) => {
-//     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-//     const mediaRecorder = new MediaRecorder(stream);
-//     const audioChunks = [];
-
-//     mediaRecorder.addEventListener("dataavailable", (event) => {
-//       audioChunks.push(event.data);
-//     });
-
-//     const start = () => mediaRecorder.start();
-
-//     const stop = () =>
-//       new Promise((resolve) => {
-//         mediaRecorder.addEventListener("stop", () => {
-//           const audioBlob = new Blob(audioChunks, { type: mediaRecorder.mimeType });
-//           const audioUrl = URL.createObjectURL(audioBlob);
-//           const audio = new Audio(audioUrl);
-//           console.log("Audio URL is", audioUrl);
-//           const play = () => audio.play();
-//           resolve({ audioBlob, audioUrl, play });
-//           // let blob = fetch(audioUrl).then(r => r.blob());
-//           let file = fetch(audioUrl)
-//             .then((r) => r.blob())
-//             .then(
-//               (blobFile) => new File([blobFile], "hello", { type: "audio/wav" })
-//             );
-//           console.log("blob is", file);
-
-//           var data = new FormData()
-//           data.append('file', audioBlob)
-    
-//           fetch('http://127.0.0.1:5000/predict', {
-//               method: 'POST',
-//               body: data
-    
-//           }).then(response => response.json()
-//           ).then(json => {
-//               console.log(json)
-//           });
-    
-//         });
-
-//         mediaRecorder.stop();
-//       });
-
-    
-//     resolve({ start, stop });
-//   });
-
-// const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
-
-// const handleAction = async () => {
-//   const recorder = await recordAudio();
-//   const actionButton = document.getElementById("start-btn");
-//   actionButton.disabled = true;
-//   recorder.start();
-//   await sleep(5000);
-//   const audio = await recorder.stop();
-//   audio.play();
-//   await sleep(5000);
-//   actionButton.disabled = false;
-// };
+//       sanchiya.innerText = "";
+//       toggle = true;
+//       ShowWaveFormProgress(toggle);
+//       if (textcontent.length) {
+//         textcontent += "";
+//       }
+//       recognition.start();
+//   };
+//   const showWave= async ()=>{
+//       toggle = false;
+//       ShowWaveFormProgress(toggle);
+//       recognition.stop();
+//   };
 
 // const ShowWaveFormProgress = (toggle) => {
 //   obj = {};
