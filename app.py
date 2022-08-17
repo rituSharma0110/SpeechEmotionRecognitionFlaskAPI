@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template,flash
+from flask import Flask, request,render_template
 import random
 import tensorflow
 from tensorflow.keras.models import load_model
@@ -6,7 +6,6 @@ import numpy as np
 import librosa
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
-import speech_recognition as sr
 
 app = Flask(__name__, template_folder='template', static_folder='static')
 model=load_model(r'Emotion_Emergency.h5')
@@ -15,9 +14,6 @@ model=load_model(r'Emotion_Emergency.h5')
 def index():
     return render_template('index.html')
 
-# @app.route('/')
-# def home():
-#     return render_template('audio_to_text.html')
 
 @app.route('/audio/')
 def audio_to_text():
@@ -26,14 +22,9 @@ def audio_to_text():
 @app.route('/predict',methods=['POST'])
 def predict():
 
-    # r = sr.Recognizer()
     with open('upload/audio.wav', 'wb') as f:
         f.write(request.data)
   
-   
-    # get file from POST request and save it
-    
-    
 
     Features = pd.read_csv(r'features_Emergency.csv')
     Y = Features['labels'].values
@@ -73,7 +64,6 @@ def predict():
     livepredictions = (encoder.inverse_transform((livepreds)))
 
     return str(livepredictions[0])
-    # return render_template('audio_to_text.html', prediction_text='OUTPUT IS {}'.format(livepredictions[0],'upload/audio.wav'))
 
 if __name__ == "__main__":
     app.run(debug=True)
