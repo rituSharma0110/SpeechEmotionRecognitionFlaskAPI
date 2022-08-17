@@ -1,0 +1,60 @@
+/* body { */
+    /* background: url(..\static\css\images\bgimg1.png); */
+    /* background-size: 100%; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+/* } */
+
+.heading {
+
+    /* position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%); */
+    background: rgb(133 180 179 / 16%);
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 26px;
+    height: 120px;
+    width: 80%;
+    margin: 8% auto;
+}
+
+.heading h1 {
+    font-size: 50px;
+    font-family: ui-sans-serif;
+}
+
+.getstartbtn {
+    text-align: center;
+    margin: 40px;
+}
+
+.button {
+    
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 300px;
+
+
+}
+
+.button4 {
+    background-color: transparent;
+    color: #faf8f8;
+    border: 2px solid #e7e7e7;
+}
+
+.button4:hover {
+    background-color: #e7e7e7;
+    color: black
+}
