@@ -11,7 +11,7 @@
     left: 50%;
     top: 35%;
     transform: translate(-50%, -50%); */
-    background: rgb(133 180 179 / 16%);
+    background: rgb(206 231 230 / 25%);
     padding: 20px;
     color: #fff;
     text-align: center;
@@ -23,7 +23,7 @@
 
 .heading h1 {
     font-size: 50px;
-    font-family: ui-sans-serif;
+    /* font-family: ui-sans-serif; */
 }
 
 .getstartbtn {
