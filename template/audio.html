@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <!-- Favicon -->
-    <link href="/static/css/images/favicon.png" rel="icon">
+    <link href="../static/css/images/favicon.png" rel="icon">
 
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -16,12 +16,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- <script src="/static/css/main.js"></script> -->
 
-    <script src="/static/js/main.js"></script>
-    <script src="/static/js/recorder.js"></script>
-    <script src="/static/js/try.js"></script>
-    <script src="/static/js/recordhelper.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/recorder.js"></script>
+    <script src="../static/js/try.js"></script>
+    <script src="../static/js/recordhelper.js"></script>
 
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 
     <!-- this script toggles text on start button  -->
     <!-- <script>
@@ -135,7 +135,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <img class="logo" src="/static/css/images/logo.png" alt="logo">
+                <img class="logo" src="../static/css/images/logo.png" alt="logo">
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><button class="btn"><a href="/">Back to home</a></button></li>
@@ -148,7 +148,9 @@
         <canvas id="canvas"></canvas>
         <div class="startbutton">
             <button class="startbtn" id="start-btn" onclick='startRecording() '>Start</button>
-            <button class="startbtn" id="stop-btn" onclick='stopRecording() '>Stop</button>
+            <form action="http://127.0.0.1:5000/predict_" method = "post">
+                <button class="startbtn" id="stop-btn" type="submit" onclick='stopRecording()'>Stop</button>
+            </form>
         </div>
 
         <div id="text-box" class="form-group">
@@ -168,15 +170,15 @@
     <div class="output" id="result">
         <h2>OUTPUT</h2>
         <p id="output"></p>
-        
     </div>
-    
     <br>
+    <br>
+    {{prediction_text}}
     <br>
     <br>
 
     <footer>
-        <img src="/static/css/images/footer_logo.PNG" alt="">
+        <img src="../static/css/images/footer_logo.PNG" alt="">
         <p>Stratagem made it possible to recognize the emotions of an individual. Using this model, authorized people
             get to know the exact emotions in which the speaker is delivering his words.
         </p>

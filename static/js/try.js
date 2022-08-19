@@ -29,7 +29,7 @@ function gotBuffers(buffers) {
 }
 
 function doneEncoding(soundBlob) {
-    fetch("/predict", { method: "POST", body: soundBlob }).then((response) =>
+    fetch("/predict_", { method: "POST", body: soundBlob }).then((response) =>
     response.text().then((text) => {
         console.log(text);
         document.getElementById("result").style.display = "block";
