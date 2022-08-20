@@ -1,7 +1,7 @@
 
 (function(window){
 
-    var WORKER_PATH = '../static/js/recordhelper.js';
+    var WORKER_PATH = '/static/js/recordhelper.js';
   
     var Recorder = function(source, cfg){
       var config = cfg || {};
