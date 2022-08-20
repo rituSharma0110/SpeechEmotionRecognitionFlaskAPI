@@ -32,21 +32,21 @@ function doneEncoding(soundBlob) {
     fetch("/predict", { method: "POST", body: soundBlob }).then((response) =>
     response.text().then((text) => {
         console.log(text);
-        document.getElementById("result").style.display = "block";
-        document.getElementById("contain").style.display = "none";
         document.getElementById("output").innerText = text;
-    })
-    );
-    recIndex++;
-}
-
-function stopRecording() {
-    // stop recording
-    recognition.stop();
-    audioRecorder.stop();
-    document.getElementById("stop-btn").disabled = true;
-    document.getElementById("start-btn").removeAttribute("disabled");
-    audioRecorder.getBuffers(gotBuffers);
+      })
+      );
+      recIndex++;
+    }
+    
+    function stopRecording() {
+      // stop recording
+      recognition.stop();
+      audioRecorder.stop();
+      document.getElementById("stop-btn").disabled = true;
+      document.getElementById("start-btn").removeAttribute("disabled");
+      audioRecorder.getBuffers(gotBuffers);
+      document.getElementById("contain").style.display = "none";
+      document.getElementById("result").style.display = "block";
 }
 
 function startRecording() {
@@ -230,7 +230,7 @@ function ShowWaveFormProgress(toggle) {
           }
         }
 
-        var freq = Math.floor(max * 4000);
+        var freq = Math.floor(max * 1000);
 
         obj.bars.push({
           x: obj.width,
