@@ -1,16 +1,5 @@
-# from flask import Flask, request,render_template
-# import random
-# import tensorflow
-from distutils.errors import UnknownFileError
-from encodings.utf_8 import decode
-from tensorflow.keras.models import load_model
-# import numpy as np
-# import librosa
-# import pandas as pd
-# from sklearn.preprocessing import OneHotEncoder
-# import speech_recognition as sr
-from flask import Flask, jsonify, render_template, request
-# import random
+from flask import Flask, jsonify, render_template
+import random
 import requests
 import tensorflow
 import csv
@@ -153,7 +142,7 @@ def predict():
     # with open('Words_emotion.csv', 'rb') as file:
     #     dataset = file.read()
 
-    dataset = pd.read_csv(r'Words_emotion.csv', header=1, lineterminator='\n', sep=';', error_bad_lines=False, engine='python')
+    dataset = pd.read_csv(r'Words_emotion.csv')
     # dataset = dataset.decode('ISO-8859-1', 'ignore')
     dataset.astype({'Phrases':'string', 'Emotions':'string'}).dtypes
     X = dataset['Phrases']
