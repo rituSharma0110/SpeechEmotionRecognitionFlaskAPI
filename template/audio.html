@@ -126,7 +126,7 @@
     //     function soundNotAllowed() {
     //     }
     //     navigator.mediaDevices.getUserMedia({ audio: true }).then(soundAllowed).catch(soundNotAllowed)
- </script>
+    </script>
 
 </head>
 
@@ -160,7 +160,7 @@
             </div>
             <p id="instructions"></p>
             <!-- <a ></a> -->
-           
+
         </div>
     </div>
     <br>
@@ -169,7 +169,16 @@
     <br>
     <div class="output" id="result">
         <h2>OUTPUT</h2>
-        <p id="output">Recognizing...</p>
+        <div id="output">
+            <p id="res">Recognizing...</p>
+            <h3><b>By SER Model :</b></h3>
+            <p id="main"></p>
+            <h3><b>By NLP Model :</b></h3>
+            <p id="output1"></p>
+            <p id="output2"></p>
+            <p id="output3"></p>
+        </div>
+
     </div>
     <br>
     <br>
@@ -190,4 +199,5 @@
 <script src="/static/css/recorder.js"></script>
 <script src="/static/css/try.js"></script>
 <script src="/static/css/recordhelper.js"></script> -->
+
 </html>

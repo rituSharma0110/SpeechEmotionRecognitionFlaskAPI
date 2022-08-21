@@ -25,33 +25,58 @@ recognition.onresult = function (event) {
 };
 
 function gotBuffers(buffers) {
-    audioRecorder.exportMonoWAV(doneEncoding);
+  audioRecorder.exportMonoWAV(doneEncoding);
 }
 
 function doneEncoding(soundBlob) {
-    fetch("/predict", { method: "POST", body: soundBlob }).then((response) =>
+  fetch("/predict", { method: "POST", body: soundBlob }).then((response) =>
     response.text().then((text) => {
-        console.log(text);
-        document.getElementById("output").innerText = text;
-      })
-      );
-      recIndex++;
-    }
-    
-    function stopRecording() {
-      // stop recording
-      recognition.stop();
-      audioRecorder.stop();
-      document.getElementById("stop-btn").disabled = true;
-      document.getElementById("start-btn").removeAttribute("disabled");
-      audioRecorder.getBuffers(gotBuffers);
-      document.getElementById("contain").style.display = "none";
-      document.getElementById("result").style.display = "block";
+      console.log(text);
+      document.getElementById("res").style.display = "none";
+      if (text === "Blank Call") {
+        document.getElementById("main").innerText = text;
+        document.getElementById("output1").innerText = "Blank Call";
+      }
+      else {
+        var text = text.replace(/[{}]/g, "");
+        console.log(text)
+        let pairs = text.split(', ')
+        let obj = pairs.reduce((obj, data) => {
+          let [k, v] = data.split(":")
+          obj[k] = v
+          return obj;
+        }, {})
+        console.log(obj["'Emotion'"].replace(/['']/g, ""))
+        a = obj["'Emotion'"].replace(/['']/g, "");
+        b = obj["'Prank'"].replace(/['']/g, "");
+        c = obj["'Not Prank'"].replace(/['']/g, "");
+        d = obj["'Abusive'"].replace(/['']/g, "");
+
+        document.getElementById("main").style.textTransform = 'capitalize';
+        document.getElementById("main").innerText = a;
+        document.getElementById("output1").innerText = "Prank - " + b;
+        document.getElementById("output2").innerText = "Not Prank - " + c;
+        document.getElementById("output3").innerText = "Abusive - " + d;
+      }
+    })
+  );
+  recIndex++;
+}
+
+function stopRecording() {
+  // stop recording
+  recognition.stop();
+  audioRecorder.stop();
+  document.getElementById("stop-btn").disabled = true;
+  document.getElementById("start-btn").removeAttribute("disabled");
+  audioRecorder.getBuffers(gotBuffers);
+  document.getElementById("contain").style.display = "none";
+  document.getElementById("result").style.display = "block";
 }
 
 function startRecording() {
-    const text = document.getElementById("textBoxContainer");
-    text.innerText = "";
+  const text = document.getElementById("textBoxContainer");
+  text.innerText = "";
   toggle = true;
   ShowWaveFormProgress(toggle);
   if (textcontent.length) {
@@ -271,7 +296,7 @@ function ShowWaveFormProgress(toggle) {
     loop();
   }
 
-  function soundNotAllowed() {}
+  function soundNotAllowed() { }
   navigator.mediaDevices
     .getUserMedia({ audio: true })
     .then(soundAllowed)
