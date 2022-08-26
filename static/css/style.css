@@ -163,7 +163,7 @@ footer p{
     margin: 20px auto;
 }
 
-#res, #main, #output1, #output2, #output3{
+#res, #main, #output1, #output2, #output3, #mainSound{
     color: #ececec;
     font-size: 28px;
     text-align: center;

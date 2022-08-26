@@ -36,6 +36,7 @@ function doneEncoding(soundBlob) {
       if (text === "Blank Call") {
         document.getElementById("main").innerText = text;
         document.getElementById("output1").innerText = "Blank Call";
+        document.getElementById("mainSound").innerText = "Blank Call";
       }
       else {
         var text = text.replace(/[{}]/g, "");
@@ -51,12 +52,14 @@ function doneEncoding(soundBlob) {
         b = obj["'Prank'"].replace(/['']/g, "");
         c = obj["'Not Prank'"].replace(/['']/g, "");
         d = obj["'Abusive'"].replace(/['']/g, "");
+        e = obj["'Main Sound'"].replace(/['']/g, "");
 
         document.getElementById("main").style.textTransform = 'capitalize';
         document.getElementById("main").innerText = a;
         document.getElementById("output1").innerText = "Prank - " + b;
         document.getElementById("output2").innerText = "Not Prank - " + c;
         document.getElementById("output3").innerText = "Abusive - " + d;
+        document.getElementById("mainSound").innerText = e;
       }
     })
   );
@@ -255,7 +258,7 @@ function ShowWaveFormProgress(toggle) {
           }
         }
 
-        var freq = Math.floor(max * 1000);
+        var freq = Math.floor(max * 700);
 
         obj.bars.push({
           x: obj.width,

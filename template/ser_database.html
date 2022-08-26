@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="/static/js/ser_database.js"></script>
+
+		<link rel="stylesheet" href="/static/css/style.css" />
+		<meta charset="UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<title>emotions data</title>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 3px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+              font-size: 15px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+	</head>
+	<body>
+		<!-- Here a loader is created which
+			loads till response comes -->
+		<div class="d-flex justify-content-center">
+			<div class="spinner-border"
+				role="status" id="loading">
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<h1>Calls data</h1>
+		<!-- table for showing data -->
+		<table id="emotiondata">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">sequence_id</th>
+                <th scope="col">ser_result</th>
+                <th scope="col">not_prank</th>
+                <th scope="col">prank</th>
+                <th scope="col">abusive</th>
+                <th scope="col">main_audio</th>
+              </tr> 
+              </thead>
+        </table>
+	</body>
+</html>
